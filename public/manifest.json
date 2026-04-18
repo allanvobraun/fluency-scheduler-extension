@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Fluency Extension",
+  "name": "Fluency Helper Extension",
   "version": "1.0.0",
-  "description": "Simple browser extension using Vite and TypeScript",
+  "description": "Simple browser extension to enhance the fluency course website",
   "background": {
     "service_worker": "background.js",
     "type": "module"
