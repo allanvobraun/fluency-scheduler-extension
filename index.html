@@ -2,12 +2,95 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fluency</title>
+    <title>Fluency Sandbox</title>
   </head>
   <body>
-    <div id="app"></div>
+    <main class="sandbox">
+      <section class="sandbox__hero">
+        <div>
+          <p class="sandbox__eyebrow">Development Sandbox</p>
+          <h1 class="sandbox__title">Fluency Calendar Button</h1>
+          <p class="sandbox__description">
+            Local page that emulates the Fluency schedule structure for manual checks and Playwright runs.
+          </p>
+        </div>
+        <div class="sandbox__actions">
+          <button id="add-dynamic-session" class="sandbox__button" type="button">
+            Add dynamic session
+          </button>
+        </div>
+      </section>
+
+      <section class="sandbox__grid">
+        <article class="session-card">
+          <div class="session-card__meta">
+            <p class="session-card__schedule">Sábado, 21/02 - 09h45</p>
+            <p class="session-card__type">Sessão individual</p>
+          </div>
+          <h2 class="session-card__title">Intermediário Science</h2>
+          <div class="session-card__teacher">
+            <div class="session-card__teacher-avatar" aria-hidden="true"></div>
+            <img alt="Aline Costa" src="/vite.svg" hidden />
+            <span>Aline Costa</span>
+          </div>
+          <div class="session-card__actions">
+            <button class="session-card__action" type="button">Ver material</button>
+            <button class="session-card__action" type="button">Cancelar sessão</button>
+          </div>
+        </article>
+
+        <article class="session-card">
+          <div class="session-card__meta">
+            <p class="session-card__schedule">10/01 - 18h30</p>
+            <p class="session-card__type">Sessão em grupo</p>
+          </div>
+          <h2 class="session-card__title">Advanced Business</h2>
+          <div class="session-card__teacher">
+            <div class="session-card__teacher-avatar" aria-hidden="true"></div>
+            <span>Marcos Vieira</span>
+          </div>
+          <div class="session-card__actions">
+            <button class="session-card__action" type="button">Ver material</button>
+          </div>
+        </article>
+
+        <article class="session-card session-card--invalid">
+          <div class="session-card__meta">
+            <p class="session-card__type">Sessão individual</p>
+          </div>
+          <h2 class="session-card__title">Missing schedule</h2>
+          <div class="session-card__teacher">
+            <div class="session-card__teacher-avatar" aria-hidden="true"></div>
+            <span>Invalid Card</span>
+          </div>
+          <div class="session-card__actions">
+            <button class="session-card__action" type="button">Ver material</button>
+          </div>
+        </article>
+
+        <div data-dynamic-sessions></div>
+      </section>
+    </main>
+
+    <template id="dynamic-session-template">
+      <article class="session-card">
+        <div class="session-card__meta">
+          <p class="session-card__schedule">07/03 - 07h15</p>
+          <p class="session-card__type">Sessão individual</p>
+        </div>
+        <h2 class="session-card__title">Dynamic Grammar Lab</h2>
+        <div class="session-card__teacher">
+          <div class="session-card__teacher-avatar" aria-hidden="true"></div>
+          <span>Renata Lima</span>
+        </div>
+        <div class="session-card__actions">
+          <button class="session-card__action" type="button">Ver material</button>
+        </div>
+      </article>
+    </template>
+
     <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="/src/content.ts"></script>
   </body>
 </html>
