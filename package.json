@@ -12,9 +12,11 @@
     "test:e2e": "playwright test tests/e2e/sandbox.spec.ts",
     "test:smoke": "PLAYWRIGHT_SKIP_WEBSERVER=1 playwright test  tests/e2e/real-site.spec.ts --debug",
     "auth:save": "node tests/e2e/save-auth.js",
-    "check": "npm run build && npm run lint && npm run test && npm run test:e2e"
+    "check": "npm run build && npm run lint && npm run test && npm run test:e2e",
+    "zip": "npm run build && cd dist && zip -r ../fluency-extension.zip ."
   },
   "dependencies": {
+    "lit": "^3.3.2",
     "luxon": "^3.7.1"
   },
   "devDependencies": {
