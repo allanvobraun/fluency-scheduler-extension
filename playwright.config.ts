@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import { defineConfig, devices } from '@playwright/test';
 
 const localPort = 4173;
