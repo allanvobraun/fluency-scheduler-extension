@@ -28,3 +28,4 @@ playwright/.auth
 *.sln
 *.sw?
 .codex
+*.zip
