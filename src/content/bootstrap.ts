@@ -61,7 +61,8 @@ export function collectSessionCards(
 export function enhanceCalendarButtons(options: BootstrapOptions = {}): void {
   const root = options.root ?? document;
   const doc = getDocument(root);
-  const now = DateTime.local();
+  const now = options.now ? options.now() : DateTime.local();
+  const openCalendar = options.openCalendar ?? openCalendarAction;
 
   ensureCalendarButtonStyles(doc);
 
@@ -71,7 +72,7 @@ export function enhanceCalendarButtons(options: BootstrapOptions = {}): void {
       event.stopPropagation();
 
       const calendarUrl = buildGoogleCalendarUrl(createCalendarEvent(session));
-      openCalendarAction(calendarUrl);
+      openCalendar(calendarUrl);
     });
 
     session.actionContainer.append(calendarButton);
