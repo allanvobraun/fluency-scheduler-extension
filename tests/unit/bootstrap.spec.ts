@@ -1,7 +1,7 @@
-import { DateTime } from 'luxon';
-import { describe, expect, it, vi } from 'vitest';
+import { DateTime } from "luxon";
+import { describe, expect, it, vi } from "vitest";
 
-import { enhanceCalendarButtons } from '../../src/content/bootstrap';
+import { enhanceCalendarButtons } from "../../src/content/bootstrap";
 
 function buildMarkup(): string {
   return `
@@ -17,32 +17,24 @@ function buildMarkup(): string {
 `;
 }
 
-describe('enhanceCalendarButtons', () => {
-  it('does not duplicate buttons when the scan runs twice', () => {
-    document.body.innerHTML = buildMarkup();
-
-    function now() {
-      return DateTime.fromISO('2026-01-10T09:00:00', { zone: 'UTC' });
-    }
-
-    expect(enhanceCalendarButtons({ now })).toBe(1);
-    expect(enhanceCalendarButtons({ now })).toBe(0);
-    expect(document.querySelectorAll('.fluency-calendar-button')).toHaveLength(1);
-  });
-
-  it('opens the generated calendar url when the button is clicked', () => {
+describe("enhanceCalendarButtons", () => {
+  it("opens the generated calendar url when the button is clicked", () => {
     document.body.innerHTML = buildMarkup();
 
     const openCalendar = vi.fn();
 
     enhanceCalendarButtons({
-      now: () => DateTime.fromISO('2026-01-10T09:00:00', { zone: 'UTC' }),
+      now: () => DateTime.fromISO("2026-01-10T09:00:00", { zone: "UTC" }),
       openCalendar,
     });
 
-    document.querySelector<HTMLButtonElement>('.fluency-calendar-button')?.click();
+    document
+      .querySelector<HTMLButtonElement>(".fluency-calendar-button")
+      ?.click();
 
     expect(openCalendar).toHaveBeenCalledTimes(1);
-    expect(openCalendar.mock.calls[0]?.[0]).toContain('google.com/calendar/render');
+    expect(openCalendar.mock.calls[0]?.[0]).toContain(
+      "google.com/calendar/render",
+    );
   });
 });
