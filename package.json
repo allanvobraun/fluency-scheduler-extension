@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "test": "vitest run",
     "test:e2e": "playwright test tests/e2e/sandbox.spec.ts",
-    "test:e2e:real": "PLAYWRIGHT_SKIP_WEBSERVER=1 playwright test tests/e2e/real-site.spec.ts",
+    "test:smoke": "PLAYWRIGHT_SKIP_WEBSERVER=1 playwright test  tests/e2e/real-site.spec.ts --debug",
+    "auth:save": "node tests/e2e/save-auth.js",
     "check": "npm run build && npm run lint && npm run test && npm run test:e2e"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "@types/node": "^24.7.2",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
+    "dotenv": "^16.6.1",
     "eslint": "^9.38.0",
     "jsdom": "^27.0.1",
     "typescript": "~5.9.3",
