@@ -1,5 +1,5 @@
-console.log('Background service worker running...');
+function handleInstalled(): void {
+  console.log('Fluency extension installed.');
+}
 
-chrome.runtime.onInstalled.addListener(() => {
-  console.log('Extension installed and background script active.');
-});
+chrome.runtime.onInstalled.addListener(handleInstalled);
