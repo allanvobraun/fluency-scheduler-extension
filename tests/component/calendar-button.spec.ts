@@ -1,7 +1,7 @@
 import { fixture, html } from "@open-wc/testing-helpers";
 import { describe, expect, it } from "vitest";
 
-import { CalendarButton } from "@/components/calendar-button";
+import type { CalendarButton } from "@/components/calendar-button";
 
 describe("calendar-button", () => {
   it("renders a Google Calendar link with the configured href", async () => {
@@ -14,7 +14,7 @@ describe("calendar-button", () => {
 
     const link = el.shadowRoot?.querySelector<HTMLAnchorElement>("a");
 
-    expect(link).to.exist;
+    expect(link).toBeTruthy();
     expect(link?.getAttribute("href")).to.equal(url);
     expect(link?.getAttribute("target")).to.equal("_blank");
     expect(link?.getAttribute("aria-label")).to.equal(
