@@ -6,9 +6,9 @@ import {
   SESSION_ACTION_LABELS,
   SESSION_BUTTON_CLASS_NAME,
   SESSION_TYPE_LABELS,
-} from "../constants";
-import { parseSessionSchedule } from "../calendar/date";
-import type { ParsedSessionCard } from "../types";
+} from "@/content/constants";
+import { parseSessionSchedule } from "@/content/calendar/date";
+import type { ParsedSessionCard } from "@/content/types";
 
 const TEXT_NODE_SELECTOR = "p, span, div, h1, h2, h3, h4, h5, h6, strong";
 

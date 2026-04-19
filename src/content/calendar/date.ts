@@ -4,8 +4,8 @@ import {
   DATE_TEXT_PATTERN,
   DEFAULT_SESSION_DURATION_MINUTES,
   YEAR_ROLLOVER_GRACE_HOURS,
-} from '../constants';
-import type { SessionSchedule } from '../types';
+} from '@/content/constants';
+import type { SessionSchedule } from '@/content/types';
 
 function isWholeNumber(value: number): boolean {
   return Number.isInteger(value) && value >= 0;

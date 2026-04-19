@@ -1,9 +1,9 @@
 import {
   FLUENCY_LOCATION_URL,
   GOOGLE_CALENDAR_URL,
-} from '../constants';
-import { formatGoogleCalendarDate } from './date';
-import type { CalendarEvent, ParsedSessionCard } from '../types';
+} from '@/content/constants';
+import { formatGoogleCalendarDate } from '@/content/calendar/date';
+import type { CalendarEvent, ParsedSessionCard } from '@/content/types';
 
 export function createCalendarEvent(session: ParsedSessionCard): CalendarEvent {
   const descriptionLines = ['Sessão de conversação na Fluency Academy'];

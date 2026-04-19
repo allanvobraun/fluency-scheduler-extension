@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon';
 import { describe, expect, it } from 'vitest';
 
-import { buildGoogleCalendarUrl, createCalendarEvent } from '../../src/content/calendar/google-calendar';
-import { FLUENCY_LOCATION_URL } from '../../src/content/constants';
-import type { ParsedSessionCard } from '../../src/content/types';
+import { buildGoogleCalendarUrl, createCalendarEvent } from '@/content/calendar/google-calendar';
+import { FLUENCY_LOCATION_URL } from '@/content/constants';
+import type { ParsedSessionCard } from '@/content/types';
 
 const session: ParsedSessionCard = {
   title: 'Intermediário Science',

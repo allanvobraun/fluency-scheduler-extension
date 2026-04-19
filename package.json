@@ -16,6 +16,7 @@
     "zip": "npm run build && cd dist && zip -r ../fluency-extension.zip ."
   },
   "dependencies": {
+    "@open-wc/testing": "^4.0.0",
     "lit": "^3.3.2",
     "luxon": "^3.7.1"
   },
