@@ -1,6 +1,7 @@
 import { fixture, html } from "@open-wc/testing-helpers";
 import { describe, expect, it } from "vitest";
 
+import "@/components/calendar-button";
 import type { CalendarButton } from "@/components/calendar-button";
 
 describe("calendar-button", () => {

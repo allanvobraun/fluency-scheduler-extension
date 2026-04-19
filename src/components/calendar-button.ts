@@ -63,6 +63,7 @@ export class CalendarButton extends LitElement {
         title="Adicionar ao Google Agenda"
         aria-label="Adicionar ao Google Agenda"
         target="_blank"
+        rel="noopener noreferrer"
         href="${this.href}"
       >
         <span class="fluency-calendar-button__icon" aria-hidden="true">
