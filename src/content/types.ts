@@ -1,4 +1,4 @@
-import type { DateTime } from 'luxon';
+import type { DateTime } from "luxon";
 
 export interface SessionSchedule {
   label: string;
@@ -29,5 +29,4 @@ export interface CalendarEvent {
 export interface BootstrapOptions {
   root?: Document | HTMLElement;
   now?: () => DateTime;
-  openCalendar?: (url: string) => void;
 }
