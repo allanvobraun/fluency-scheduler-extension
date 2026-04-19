@@ -1,14 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => {
-    window.open = ((url?: string | URL) => {
-      (window as Window & { __openedUrl?: string }).__openedUrl = String(url ?? '');
-      return null;
-    }) as Window['open'];
-  });
-});
-
 test('renders buttons for valid cards only', async ({ page }) => {
   await page.goto('/');
 
@@ -27,9 +18,8 @@ test('adds a button for dynamically inserted cards', async ({ page }) => {
 test('opens the expected Google Calendar link', async ({ page }) => {
   await page.goto('/');
 
-  await page.locator('.fluency-calendar-button').first().click();
+  const link = page.locator('.fluency-calendar-button').first();
 
-  await expect
-    .poll(() => page.evaluate(() => (window as Window & { __openedUrl?: string }).__openedUrl ?? ''))
-    .toContain('https://www.google.com/calendar/render');
+  await expect(link).toHaveAttribute('href', /https:\/\/www\.google\.com\/calendar\/render/);
+  await expect(link).toHaveAttribute('target', '_blank');
 });
