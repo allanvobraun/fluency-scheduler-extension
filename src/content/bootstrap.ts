@@ -4,10 +4,7 @@ import {
   buildGoogleCalendarUrl,
   createCalendarEvent,
 } from "./calendar/google-calendar";
-import {
-  createCalendarButton,
-  ensureCalendarButtonStyles,
-} from "./dom/calendar-button";
+import { createCalendarButton } from "./dom/create-calendar-button";
 import {
   findSessionActionContainers,
   findSessionCard,
@@ -22,10 +19,6 @@ function getDocument(root: Document | HTMLElement): Document {
 
 function getObservationTarget(root: Document | HTMLElement): HTMLElement {
   return root instanceof Document ? root.body : root;
-}
-
-function openCalendarAction(url: string): void {
-  window.open(url, "_blank", "noopener,noreferrer");
 }
 
 export function collectSessionCards(
@@ -62,18 +55,12 @@ export function enhanceCalendarButtons(options: BootstrapOptions = {}): void {
   const root = options.root ?? document;
   const doc = getDocument(root);
   const now = options.now ? options.now() : DateTime.local();
-  const openCalendar = options.openCalendar ?? openCalendarAction;
-
-  ensureCalendarButtonStyles(doc);
 
   for (const session of collectSessionCards(root, now)) {
-    const calendarButton = createCalendarButton(doc, (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-
-      const calendarUrl = buildGoogleCalendarUrl(createCalendarEvent(session));
-      openCalendar(calendarUrl);
-    });
+    const calendarButton = createCalendarButton(
+      doc,
+      buildGoogleCalendarUrl(createCalendarEvent(session)),
+    );
 
     session.actionContainer.append(calendarButton);
   }
