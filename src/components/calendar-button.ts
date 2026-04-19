@@ -2,7 +2,7 @@ import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 
 @customElement("calendar-button")
-class CalendarButton extends LitElement {
+export class CalendarButton extends LitElement {
   @property({ type: String })
   href = "";
 
