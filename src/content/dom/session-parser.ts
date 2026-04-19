@@ -131,7 +131,10 @@ export function findSessionActionContainers(
 }
 
 export function hasCalendarButton(container: HTMLElement): boolean {
-  return container.querySelector(`.${SESSION_BUTTON_CLASS_NAME}`) !== null;
+  return (
+    container.querySelector("calendar-button") !== null ||
+    container.querySelector(`.${SESSION_BUTTON_CLASS_NAME}`) !== null
+  );
 }
 
 export function findSessionCard(
