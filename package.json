@@ -1,7 +1,7 @@
 {
   "name": "fluency",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,9 @@
     "test:smoke": "PLAYWRIGHT_SKIP_WEBSERVER=1 playwright test  tests/e2e/real-site.spec.ts --debug",
     "auth:save": "node tests/e2e/save-auth.js",
     "check": "npm run build && npm run lint && npm run test && npm run test:e2e",
-    "zip": "npm run build && cd dist && zip -r ../fluency-extension.zip ."
+    "zip": "npm run build && cd dist && zip -r ../fluency-extension.zip .",
+    "version:sync": "node scripts/sync-extension-version.mjs",
+    "check:ci": "npm run build && npm run lint && npm run test && npm run test:e2e"
   },
   "dependencies": {
   
