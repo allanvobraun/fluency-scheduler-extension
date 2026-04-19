@@ -49,10 +49,22 @@ Build the extension:
 npm run build
 ```
 
+Sync the manifest version with `package.json`:
+
+```bash
+npm run version:sync
+```
+
 Run the quality checks:
 
 ```bash
 npm run check
+```
+
+Run the CI-equivalent checks locally:
+
+```bash
+npm run check:ci
 ```
 
 ## Load the Extension in Chrome
@@ -102,6 +114,12 @@ Sandbox end-to-end tests:
 npm run test:e2e
 ```
 
+CI-equivalent local checks:
+
+```bash
+npm run check:ci
+```
+
 Smoke test against the real Fluency site:
 
 1. Configure `.env`
@@ -126,6 +144,12 @@ npm run test:smoke
 3. Make changes in small, focused commits
 4. Run `npm run check`
 5. If you touched the real-site flow, also run `npm run auth:save`, `npm run build`, and `npm run test:smoke`
+
+## GitHub Actions
+
+- Pull requests and pushes to `main` run the CI workflow for build, lint, Vitest, and the sandbox Playwright test.
+- Merges to `main` trigger the release workflow, which increments the patch version, syncs `package.json` and `public/manifest.json`, tags the release, and uploads `fluency-extension.zip` to GitHub Releases.
+- `package.json` is the version source of truth, and `public/manifest.json` is kept in sync automatically.
 
 ## Project Structure
 

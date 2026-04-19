@@ -15,8 +15,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://academy.fluency.io/*"],
-      "js": ["content.js"]
+      "matches": [
+        "https://academy.fluency.io/*"
+      ],
+      "js": [
+        "content.js"
+      ]
     }
   ],
   "permissions": []
