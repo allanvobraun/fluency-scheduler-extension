@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon';
 import { describe, expect, it } from 'vitest';
 
-import { DEFAULT_SESSION_DURATION_MINUTES } from '../../src/content/constants';
-import { parseSessionSchedule } from '../../src/content/calendar/date';
+import { DEFAULT_SESSION_DURATION_MINUTES } from '@/content/constants';
+import { parseSessionSchedule } from '@/content/calendar/date';
 
 describe('parseSessionSchedule', () => {
   it('parses a valid Fluency schedule label', () => {

@@ -3,6 +3,7 @@
     "target": "ES2022",
     "useDefineForClassFields": false,
     "module": "ESNext",
+    "baseUrl": ".",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "types": ["vite/client", "chrome", "node"],
     "skipLibCheck": true,
@@ -19,7 +20,10 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
   "include": [
     "src",

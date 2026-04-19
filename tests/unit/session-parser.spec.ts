@@ -8,7 +8,7 @@ import {
   findSessionActionContainers,
   findSessionCard,
   parseSessionCard,
-} from '../../src/content/dom/session-parser';
+} from '@/content/dom/session-parser';
 
 const fixturePath = path.resolve(process.cwd(), 'tests/fixtures/session-card.html');
 const fixtureMarkup = readFileSync(fixturePath, 'utf8');

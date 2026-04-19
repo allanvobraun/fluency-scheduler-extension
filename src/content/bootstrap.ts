@@ -3,15 +3,15 @@ import { DateTime } from "luxon";
 import {
   buildGoogleCalendarUrl,
   createCalendarEvent,
-} from "./calendar/google-calendar";
-import { createCalendarButton } from "./dom/create-calendar-button";
+} from "@/content/calendar/google-calendar";
+import { createCalendarButton } from "@/content/dom/create-calendar-button";
 import {
   findSessionActionContainers,
   findSessionCard,
   hasCalendarButton,
   parseSessionCard,
-} from "./dom/session-parser";
-import type { BootstrapOptions, SessionCardData } from "./types";
+} from "@/content/dom/session-parser";
+import type { BootstrapOptions, SessionCardData } from "@/content/types";
 
 function getDocument(root: Document | HTMLElement): Document {
   return root instanceof Document ? root : root.ownerDocument;

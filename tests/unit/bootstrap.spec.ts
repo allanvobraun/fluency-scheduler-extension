@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 import { describe, expect, it, vi } from "vitest";
 
-import { enhanceCalendarButtons } from "../../src/content/bootstrap";
+import { enhanceCalendarButtons } from "@/content/bootstrap";
 
 function buildMarkup(): string {
   return `
@@ -19,7 +19,7 @@ function buildMarkup(): string {
 
 describe("enhanceCalendarButtons", () => {
   it("opens the generated calendar url when the button is clicked", () => {
-    // TODO fix test
+    // TODO fix test using open-wc/testing
     // document.body.innerHTML = buildMarkup();
     // enhanceCalendarButtons({
     //   now: () => DateTime.fromISO("2026-01-10T09:00:00", { zone: "UTC" }),
