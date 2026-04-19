@@ -1,7 +1,7 @@
 {
   "name": "fluency",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -18,7 +18,6 @@
     "check:ci": "npm run build && npm run lint && npm run test && npm run test:e2e"
   },
   "dependencies": {
-  
     "lit": "^3.3.2",
     "luxon": "^3.7.1"
   },
