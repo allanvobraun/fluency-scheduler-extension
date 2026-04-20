@@ -2,7 +2,7 @@ import "dotenv/config";
 
 import path from "node:path";
 
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../fixtures/real-browser-fixtures";
 
 const fluencyBaseUrl = process.env.FLUENCY_BASE_URL;
 const authStatePath = process.env.PLAYWRIGHT_AUTH_STATE;
