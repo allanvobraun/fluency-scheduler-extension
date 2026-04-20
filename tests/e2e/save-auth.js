@@ -68,7 +68,7 @@ async function saveAuthState() {
 
   globalThis.console.log(`Saved auth state to ${authStatePath}`);
   globalThis.console.log(
-    `Run the smoke test with FLUENCY_BASE_URL="${baseUrl}" PLAYWRIGHT_AUTH_STATE="${authStatePath}" npm run test:e2e:real`,
+    `Run the smoke test with FLUENCY_BASE_URL="${baseUrl}" PLAYWRIGHT_AUTH_STATE="${authStatePath}" npm run test:smoke`,
   );
 }
 
