@@ -14,5 +14,7 @@ test("shows the calendar button on the real Fluency page", async ({ page }) => {
   await page.goto(fluencyBaseUrl!);
   await page.pause();
 
-  await expect(page.locator(".fluency-calendar-button").first()).toBeVisible();
+  await expect(page.locator(".fluency-calendar-button").first()).toBeVisible({
+    timeout: 1000,
+  });
 });
