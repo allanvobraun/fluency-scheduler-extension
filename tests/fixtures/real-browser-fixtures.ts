@@ -1,6 +1,6 @@
 import path from "node:path";
 
-import { test as base, chromium, type BrowserContext } from "@playwright/test";
+import { test as base, type BrowserContext } from "@playwright/test";
 
 import { ensureFluencySession } from "./fluency-auth";
 
@@ -8,9 +8,9 @@ export const test = base.extend<{
   context: BrowserContext;
   extensionId: string;
 }>({
-  context: async ({}, use) => {
+  context: async ({ playwright }, use) => {
     const pathToExtension = path.resolve(process.cwd(), "dist");
-    const context = await chromium.launchPersistentContext("", {
+    const context = await playwright.chromium.launchPersistentContext("", {
       channel: "chromium",
       args: [
         `--disable-extensions-except=${pathToExtension}`,
