@@ -2,12 +2,14 @@ import path from "node:path";
 
 import { test as base, chromium, type BrowserContext } from "@playwright/test";
 
+import { ensureFluencySession } from "./fluency-auth";
+
 export const test = base.extend<{
   context: BrowserContext;
   extensionId: string;
 }>({
   context: async ({}, use) => {
-    const pathToExtension = path.join(__dirname, "my-extension");
+    const pathToExtension = path.resolve(process.cwd(), "dist");
     const context = await chromium.launchPersistentContext("", {
       channel: "chromium",
       args: [
@@ -15,6 +17,7 @@ export const test = base.extend<{
         `--load-extension=${pathToExtension}`,
       ],
     });
+    await ensureFluencySession(context);
     await use(context);
     await context.close();
   },
