@@ -1,0 +1,38 @@
+import path from "node:path";
+
+import { test as base, chromium, type BrowserContext } from "@playwright/test";
+
+import { ensureFluencySession } from "./fluency-auth";
+
+export const test = base.extend<{
+  context: BrowserContext;
+  extensionId: string;
+}>({
+  context: async ({}, use) => {
+    const pathToExtension = path.resolve(process.cwd(), "dist");
+    const context = await chromium.launchPersistentContext("", {
+      channel: "chromium",
+      args: [
+        `--disable-extensions-except=${pathToExtension}`,
+        `--load-extension=${pathToExtension}`,
+      ],
+    });
+    await ensureFluencySession(context);
+    await use(context);
+    await context.close();
+  },
+  extensionId: async ({ context }, use) => {
+    // for manifest v3:
+    let [serviceWorker] = context.serviceWorkers();
+    if (!serviceWorker)
+      serviceWorker = await context.waitForEvent("serviceworker");
+
+    const extensionId = serviceWorker.url().split("/")[2];
+
+    if (!extensionId) {
+      throw new Error("failed to load extension id");
+    }
+    await use(extensionId!);
+  },
+});
+export const expect = test.expect;

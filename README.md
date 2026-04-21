@@ -86,7 +86,7 @@ After that, open a matching page under `https://academy.fluency.io/` and the ext
 
 ## Environment Variables
 
-The smoke-test flow and auth helper load variables automatically from `.env`.
+The smoke test loads variables automatically from `.env`.
 
 Start from:
 
@@ -97,8 +97,10 @@ cp .env.example .env
 Available variables:
 
 - `FLUENCY_BASE_URL`: page used by the smoke test
-- `FLUENCY_LOGIN_URL`: optional login URL used by the auth helper; defaults to `FLUENCY_BASE_URL`
-- `PLAYWRIGHT_AUTH_STATE`: path where Playwright stores the authenticated session
+- `FLUENCY_LOGIN_URL`: optional login URL for the automated sign-in step; defaults to `FLUENCY_BASE_URL`
+- `FLUENCY_USERNAME`: username or email used for the Fluency login flow
+- `FLUENCY_PASSWORD`: password used for the Fluency login flow
+- `PLAYWRIGHT_AUTH_STATE`: optional path used by `npm run auth:save` if you still want to save a Playwright session manually
 
 ## Testing
 
@@ -123,19 +125,17 @@ npm run check:ci
 Smoke test against the real Fluency site:
 
 1. Configure `.env`
-2. Save an authenticated Playwright session
-3. Build the extension
-4. Run the smoke test
+2. Build the extension
+3. Run the smoke test
 
 Commands:
 
 ```bash
-npm run auth:save
 npm run build
 npm run test:smoke
 ```
 
-`npm run auth:save` opens a headed browser, waits for you to log in manually, and saves the authenticated session to `PLAYWRIGHT_AUTH_STATE`.
+`npm run test:smoke` launches persistent Chromium, signs into Fluency automatically with `FLUENCY_USERNAME` and `FLUENCY_PASSWORD`, and then runs the real-site assertion.
 
 ## Contributing
 
@@ -143,7 +143,7 @@ npm run test:smoke
 2. Create `.env` from `.env.example` if you need the real-site smoke flow
 3. Make changes in small, focused commits
 4. Run `npm run check`
-5. If you touched the real-site flow, also run `npm run auth:save`, `npm run build`, and `npm run test:smoke`
+5. If you touched the real-site flow, also run `npm run build` and `npm run test:smoke`
 
 ## GitHub Actions
 
