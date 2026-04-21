@@ -1,27 +1,17 @@
 import "dotenv/config";
 
-import path from "node:path";
-
 import { test, expect } from "../fixtures/real-browser-fixtures";
+import { hasFluencyLoginEnv } from "../fixtures/fluency-auth";
 
-const fluencyBaseUrl = process.env.FLUENCY_BASE_URL;
-const authStatePath = process.env.PLAYWRIGHT_AUTH_STATE;
+const fluencyBaseUrl = process.env.FLUENCY_BASE_URL?.trim();
 
 test.skip(
-  !fluencyBaseUrl || !authStatePath,
-  "FLUENCY_BASE_URL and PLAYWRIGHT_AUTH_STATE are required.",
+  !hasFluencyLoginEnv(),
+  "FLUENCY_BASE_URL, FLUENCY_USERNAME, and FLUENCY_PASSWORD are required.",
 );
-
-test.use({
-  storageState: authStatePath,
-});
 
 test("shows the calendar button on the real Fluency page", async ({ page }) => {
   await page.goto(fluencyBaseUrl!);
-  await page.addScriptTag({
-    path: path.resolve(process.cwd(), "dist/content.js"),
-    type: "module",
-  });
   await page.pause();
 
   await expect(page.locator(".fluency-calendar-button").first()).toBeVisible();
