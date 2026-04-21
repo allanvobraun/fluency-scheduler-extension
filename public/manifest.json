@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fluency Helper Extension",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple browser extension to enhance the fluency course website",
   "icons": {
     "16": "icons/icon-16.png",
