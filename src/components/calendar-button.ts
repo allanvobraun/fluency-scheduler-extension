@@ -15,12 +15,12 @@ export class CalendarButton extends LitElement {
       height: 40px;
       margin-left: 12px;
       padding: 0;
-      border: 1px solid #d5dfeb;
+      border: 1px solid #6b47ed;
       border-radius: 999px;
-      background: #f4f8fc;
-      color: #37506a;
+      background: #6b47ed;
+      color: #ffffff;
       cursor: pointer;
-      box-shadow: 0 1px 2px rgba(16, 35, 59, 0.08);
+      box-shadow: 0 1px 2px rgba(45, 30, 103, 0.12);
       transition:
         transform 160ms ease,
         box-shadow 160ms ease,
@@ -31,14 +31,14 @@ export class CalendarButton extends LitElement {
 
     .fluency-calendar-button:hover {
       transform: translateY(-1px);
-      border-color: #0f6b98;
-      background: #0f6b98;
+      border-color: #8065f1;
+      background: #8065f1;
       color: #ffffff;
-      box-shadow: 0 6px 14px rgba(15, 107, 152, 0.2);
+      box-shadow: 0 6px 14px rgba(107, 71, 237, 0.24);
     }
 
     .fluency-calendar-button:focus-visible {
-      outline: 3px solid rgba(56, 189, 248, 0.32);
+      outline: 3px solid rgba(107, 71, 237, 0.28);
       outline-offset: 2px;
     }
 
